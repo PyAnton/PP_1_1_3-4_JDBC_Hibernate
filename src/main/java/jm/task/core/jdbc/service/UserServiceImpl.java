@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
     //private final UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
 
     //Раскоментиру для теста JDBC!
-    //private final UserDaoJDBCImpl userDao = new UserDaoJDBCImpl();
+    private final UserDaoJDBCImpl userDao = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
         userDao.createUsersTable();
