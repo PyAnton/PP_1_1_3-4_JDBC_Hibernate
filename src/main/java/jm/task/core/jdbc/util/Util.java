@@ -16,9 +16,9 @@ import java.util.Properties;
 
 public class Util {
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/testHibernate";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "root";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/kata";
+    private static final String DB_USER = "";
+    private static final String DB_PASSWORD = "";
     private static Connection connection;
     private static SessionFactory sessionFactory;
 
@@ -41,6 +41,7 @@ public class Util {
                     .applySettings(configuration.getProperties()).build();
 
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            System.out.println("Подключение к Hibernate Установленно!");
         } catch (HibernateException e) {
             e.printStackTrace();
         }
@@ -55,6 +56,7 @@ public class Util {
     public static Connection getConnection() {
         try {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            System.out.println("Подключение к jdbc Установленно!");
         } catch (SQLException e) {
             e.getStackTrace();
         }
